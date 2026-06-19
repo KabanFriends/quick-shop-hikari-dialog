@@ -32,7 +32,6 @@ spotless {
 dependencies {
     compileOnly(libs.paper.api)
     compileOnly(libs.configurate.yaml)
-    runtimeDownload(libs.guice)
     runtimeDownload(libs.configurate.hocon)
     runtimeDownload(libs.adventure.serializer.configurate)
     runtimeDownload(libs.kotonoha.message)
@@ -49,6 +48,8 @@ dependencies {
     // Misc
     implementation(libs.result4j)
     implementation(libs.bstats.bukkit)
+    implementation(variantOf(libs.guice) { classifier("classes") })
+    implementation(libs.asm)
 
     annotationProcessor(libs.kotonoha.resourcebundle.generator.processor)
 }
